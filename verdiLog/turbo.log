@@ -1,0 +1,3 @@
+Command Line: /home/yori/synopsys_tool/verdi/Verdi_O-2018.09-SP2/platform/LINUXAMD64/bin/Novas -f file.list -ssf sim/async_fifo/async_fifo.fsdb +nologo
+uname(Linux EDAYori 3.10.0-1160.119.1.el7.x86_64 #1 SMP Tue Jun 4 14:43:51 UTC 2024 x86_64)
+au time 307.269126 4.314317 7.879177 delta 962232320 962232320 total 1387319296 1387319296

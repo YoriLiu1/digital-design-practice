@@ -1,0 +1,42 @@
+*design* DebussyLib (btIdent Verdi_O-2018.09-SP2)
+Command arguments:
+    +define+verilog
+    -f file.list
+        ./rtl/async_fifo/async_fifo.v
+        ./tb/async_fifo/async_fifo_tb.v
+    +nologo
+
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 87: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 87: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 107: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 107: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 109: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 109: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 114: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 114: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 116: 
+
+*Error* nonconstant index
+"./rtl/async_fifo/async_fifo.v", 116: 
+Highest level modules:
+async_fifo_tb
+
+Total	10 error(s),   0 warning(s)

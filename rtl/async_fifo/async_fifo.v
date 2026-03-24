@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module asyn_fifo#(
+module async_fifo#(
     parameter FIFO_WIDTH='d8,
     parameter FIFO_DEPTH='d16,
     parameter ALMOST_FULL='d12,

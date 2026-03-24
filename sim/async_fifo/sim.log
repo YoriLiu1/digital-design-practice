@@ -1,0 +1,397 @@
+Command: /home/yori/digital-design-practice/sim/async_fifo/./simv -l sim.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Mar 23 22:33 2026
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'async_fifo.fsdb'
+*Verdi* : Begin traversing the scope (async_fifo_tb), layer (0).
+*Verdi* : End of traversing.
+[                5000] wclk: wr_en=0, wfull=0, almost_full=0
+[               10000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xxx
+[               15000] wclk: wr_en=0, wfull=0, almost_full=0
+========================================
+Testbench Started
+FIFO_WIDTH =           8, FIFO_DEPTH =          16
+ALMOST_FULL =          12, ALMOST_EMPTY =           4
+========================================
+[               25000] wclk: wr_en=0, wfull=0, almost_full=0
+[               30000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xxx
+[               35000] wclk: wr_en=0, wfull=0, almost_full=0
+[               45000] wclk: wr_en=0, wfull=0, almost_full=0
+
+[Test 1] Write then read
+[               50000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xxx
+[               55000] wclk: wr_en=1, wfull=0, almost_full=0
+  Wrote data: 0xa5 at time                65000
+[               65000] wclk: wr_en=0, wfull=0, almost_full=0
+[               70000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xxx
+[               75000] wclk: wr_en=0, wfull=0, almost_full=0
+[               85000] wclk: wr_en=0, wfull=0, almost_full=0
+[               90000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xxx
+[               95000] wclk: wr_en=0, wfull=0, almost_full=0
+[              105000] wclk: wr_en=0, wfull=0, almost_full=0
+[              110000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xxx
+[              115000] wclk: wr_en=0, wfull=0, almost_full=0
+[              125000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xa5 at time               130000
+  [PASS] Read data matches
+[              130000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xa5
+[              135000] wclk: wr_en=0, wfull=0, almost_full=0
+[              145000] wclk: wr_en=0, wfull=0, almost_full=0
+[              150000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xa5
+[              155000] wclk: wr_en=0, wfull=0, almost_full=0
+[              165000] wclk: wr_en=0, wfull=0, almost_full=0
+[              170000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xa5
+[              175000] wclk: wr_en=0, wfull=0, almost_full=0
+
+[Test 2] Write until full
+[              185000] wclk: wr_en=1, wfull=0, almost_full=0
+[              190000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xa5
+[              195000] wclk: wr_en=1, wfull=0, almost_full=0
+[              205000] wclk: wr_en=1, wfull=0, almost_full=0
+[              210000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xa5
+[              215000] wclk: wr_en=1, wfull=0, almost_full=0
+[              225000] wclk: wr_en=1, wfull=0, almost_full=0
+[              230000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0xa5
+[              235000] wclk: wr_en=1, wfull=0, almost_full=0
+[              245000] wclk: wr_en=1, wfull=0, almost_full=0
+[              250000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+[              255000] wclk: wr_en=1, wfull=0, almost_full=0
+[              265000] wclk: wr_en=1, wfull=0, almost_full=0
+[              270000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+[              275000] wclk: wr_en=1, wfull=0, almost_full=0
+[              285000] wclk: wr_en=1, wfull=0, almost_full=0
+[              290000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+[              295000] wclk: wr_en=1, wfull=0, almost_full=0
+[              305000] wclk: wr_en=1, wfull=0, almost_full=0
+[              310000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+[              315000] wclk: wr_en=1, wfull=0, almost_full=1
+[              325000] wclk: wr_en=1, wfull=0, almost_full=1
+[              330000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+[              335000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time               345000
+[              345000] wclk: wr_en=1, wfull=1, almost_full=0
+[              350000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+  FIFO full after writing 182 data
+  wfull = 1, almost_full = 0
+[              355000] wclk: wr_en=0, wfull=1, almost_full=0
+[              365000] wclk: wr_en=0, wfull=1, almost_full=0
+[              370000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0xa5
+[              375000] wclk: wr_en=0, wfull=1, almost_full=0
+[              385000] wclk: wr_en=0, wfull=1, almost_full=0
+[              390000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xa5
+[              395000] wclk: wr_en=0, wfull=1, almost_full=0
+
+[Test 3] Read until empty
+[              405000] wclk: wr_en=0, wfull=1, almost_full=0
+  Read data: 0xa5
+[              410000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xa5
+[              415000] wclk: wr_en=0, wfull=1, almost_full=0
+[              425000] wclk: wr_en=0, wfull=1, almost_full=0
+  Read data: 0xa6
+[              430000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xa6
+[              435000] wclk: wr_en=0, wfull=0, almost_full=1
+[              445000] wclk: wr_en=0, wfull=0, almost_full=1
+  Read data: 0xa7
+[              450000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xa7
+[              455000] wclk: wr_en=0, wfull=0, almost_full=1
+[              465000] wclk: wr_en=0, wfull=0, almost_full=1
+  Read data: 0xa8
+[              470000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xa8
+[              475000] wclk: wr_en=0, wfull=0, almost_full=0
+[              485000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xa9
+[              490000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xa9
+[              495000] wclk: wr_en=0, wfull=0, almost_full=1
+[              505000] wclk: wr_en=0, wfull=0, almost_full=1
+  Read data: 0xaa
+[              510000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xaa
+[              515000] wclk: wr_en=0, wfull=0, almost_full=0
+[              525000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xab
+[              530000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xab
+[              535000] wclk: wr_en=0, wfull=0, almost_full=0
+[              545000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xac
+[              550000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xac
+[              555000] wclk: wr_en=0, wfull=0, almost_full=0
+[              565000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xad
+[              570000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xad
+[              575000] wclk: wr_en=0, wfull=0, almost_full=0
+[              585000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xae
+[              590000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xae
+[              595000] wclk: wr_en=0, wfull=0, almost_full=0
+[              605000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xaf
+[              610000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xaf
+[              615000] wclk: wr_en=0, wfull=0, almost_full=0
+[              625000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xb0
+[              630000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xb0
+[              635000] wclk: wr_en=0, wfull=0, almost_full=0
+[              645000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xb1
+[              650000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xb1
+[              655000] wclk: wr_en=0, wfull=0, almost_full=0
+[              665000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xb2
+[              670000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xb2
+[              675000] wclk: wr_en=0, wfull=0, almost_full=0
+[              685000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xb3
+[              690000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xb3
+[              695000] wclk: wr_en=0, wfull=0, almost_full=0
+[              705000] wclk: wr_en=0, wfull=0, almost_full=0
+  Read data: 0xb4
+[              710000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xb4
+[              715000] wclk: wr_en=0, wfull=0, almost_full=1
+[              725000] wclk: wr_en=0, wfull=0, almost_full=1
+  Read data: 0xxx
+WARNING: Read from empty FIFO at time               730000
+[              730000] rclk: rd_en=1, rempty=1, almost_empty=0, data_out=0xxx
+[              735000] wclk: wr_en=0, wfull=0, almost_full=0
+[              745000] wclk: wr_en=0, wfull=0, almost_full=0
+  FIFO empty after reading all data
+  rempty = 1, almost_empty = 0
+[              750000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              755000] wclk: wr_en=0, wfull=0, almost_full=0
+[              765000] wclk: wr_en=0, wfull=0, almost_full=0
+[              770000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              775000] wclk: wr_en=0, wfull=0, almost_full=0
+[              785000] wclk: wr_en=0, wfull=0, almost_full=0
+[              790000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              795000] wclk: wr_en=0, wfull=0, almost_full=0
+
+[Test 4] Test almost_full and almost_empty flags
+  Writing data until almost_full...
+[              805000] wclk: wr_en=1, wfull=0, almost_full=0
+[              810000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              815000] wclk: wr_en=1, wfull=0, almost_full=1
+  almost_full = 1 when data count >=          12
+[              825000] wclk: wr_en=0, wfull=0, almost_full=1
+[              830000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              835000] wclk: wr_en=0, wfull=0, almost_full=1
+[              845000] wclk: wr_en=0, wfull=0, almost_full=1
+[              850000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[              855000] wclk: wr_en=0, wfull=0, almost_full=1
+[              865000] wclk: wr_en=0, wfull=0, almost_full=1
+[              870000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+  Reading data until almost_empty...
+[              875000] wclk: wr_en=0, wfull=0, almost_full=1
+[              885000] wclk: wr_en=0, wfull=0, almost_full=1
+[              890000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[              895000] wclk: wr_en=0, wfull=0, almost_full=1
+[              905000] wclk: wr_en=0, wfull=0, almost_full=1
+[              910000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[              915000] wclk: wr_en=0, wfull=0, almost_full=1
+[              925000] wclk: wr_en=0, wfull=0, almost_full=1
+WARNING: Read from empty FIFO at time               930000
+[              930000] rclk: rd_en=1, rempty=1, almost_empty=0, data_out=0xxx
+[              935000] wclk: wr_en=0, wfull=0, almost_full=0
+[              945000] wclk: wr_en=0, wfull=0, almost_full=0
+  almost_empty = 0 when data count <=           4
+[              950000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              955000] wclk: wr_en=0, wfull=0, almost_full=0
+[              965000] wclk: wr_en=0, wfull=0, almost_full=0
+[              970000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              975000] wclk: wr_en=0, wfull=0, almost_full=0
+[              985000] wclk: wr_en=0, wfull=0, almost_full=0
+[              990000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[              995000] wclk: wr_en=0, wfull=0, almost_full=0
+
+[Test 5] Random write and read
+[             1005000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1010000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[             1015000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1025000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1030000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[             1035000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1045000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1050000] rclk: rd_en=0, rempty=1, almost_empty=0, data_out=0xxx
+[             1055000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1065000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1070000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1075000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1085000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1090000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1095000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1105000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1110000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1115000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1125000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1130000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1135000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1145000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1150000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1155000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1165000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1170000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1175000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1185000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1190000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xxx
+[             1195000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1205000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1210000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xxx
+[             1215000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1225000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1230000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0xxx
+[             1235000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1245000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1250000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1255000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1265000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1270000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1275000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1285000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1290000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1295000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1305000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1310000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1315000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1325000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1330000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1335000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1345000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1350000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1355000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1365000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1370000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1375000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1385000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1390000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1395000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1405000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1410000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1415000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1425000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1430000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1435000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1445000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1450000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1455000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1465000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1470000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1475000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1485000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1490000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1495000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1505000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1510000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1515000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1525000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1530000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1535000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1545000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1550000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1555000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1565000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1570000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1575000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1585000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1590000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1595000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1605000
+[             1605000] wclk: wr_en=1, wfull=1, almost_full=0
+[             1610000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xxx
+[             1615000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1625000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1630000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xxx
+[             1635000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1645000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1650000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0x65
+[             1655000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1665000
+[             1665000] wclk: wr_en=1, wfull=1, almost_full=0
+[             1670000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0x96
+[             1675000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1685000
+[             1685000] wclk: wr_en=1, wfull=1, almost_full=0
+[             1690000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0x96
+[             1695000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1705000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1710000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0x96
+[             1715000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1725000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1730000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0x96
+[             1735000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1745000] wclk: wr_en=0, wfull=1, almost_full=0
+[             1750000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0x96
+[             1755000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1765000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1770000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0x96
+[             1775000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1785000
+[             1785000] wclk: wr_en=1, wfull=1, almost_full=0
+[             1790000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0x53
+[             1795000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1805000
+[             1805000] wclk: wr_en=1, wfull=1, almost_full=1
+[             1810000] rclk: rd_en=1, rempty=0, almost_empty=1, data_out=0x53
+[             1815000] wclk: wr_en=1, wfull=0, almost_full=0
+WARNING: Write to full FIFO at time              1825000
+[             1825000] wclk: wr_en=1, wfull=1, almost_full=0
+[             1830000] rclk: rd_en=0, rempty=0, almost_empty=1, data_out=0x02
+[             1835000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1845000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1850000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0x02
+[             1855000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1865000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1870000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0x02
+[             1875000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1885000] wclk: wr_en=0, wfull=0, almost_full=1
+[             1890000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0x02
+[             1895000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1905000
+[             1905000] wclk: wr_en=1, wfull=1, almost_full=1
+[             1910000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0x02
+[             1915000] wclk: wr_en=0, wfull=1, almost_full=1
+[             1925000] wclk: wr_en=0, wfull=1, almost_full=1
+[             1930000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0x02
+[             1935000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1945000] wclk: wr_en=0, wfull=0, almost_full=0
+[             1950000] rclk: rd_en=1, rempty=0, almost_empty=0, data_out=0xcf
+[             1955000] wclk: wr_en=1, wfull=0, almost_full=0
+[             1965000] wclk: wr_en=1, wfull=0, almost_full=1
+[             1970000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xcf
+[             1975000] wclk: wr_en=1, wfull=0, almost_full=1
+WARNING: Write to full FIFO at time              1985000
+[             1985000] wclk: wr_en=1, wfull=1, almost_full=1
+[             1990000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xcf
+WARNING: Write to full FIFO at time              1995000
+[             1995000] wclk: wr_en=1, wfull=1, almost_full=1
+WARNING: Write to full FIFO at time              2005000
+[             2005000] wclk: wr_en=1, wfull=1, almost_full=1
+[             2010000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xcf
+WARNING: Write to full FIFO at time              2015000
+[             2015000] wclk: wr_en=1, wfull=1, almost_full=1
+WARNING: Write to full FIFO at time              2025000
+[             2025000] wclk: wr_en=1, wfull=1, almost_full=1
+[             2030000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xcf
+WARNING: Write to full FIFO at time              2035000
+[             2035000] wclk: wr_en=1, wfull=1, almost_full=1
+WARNING: Write to full FIFO at time              2045000
+[             2045000] wclk: wr_en=1, wfull=1, almost_full=1
+[             2050000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xcf
+WARNING: Write to full FIFO at time              2055000
+[             2055000] wclk: wr_en=1, wfull=1, almost_full=1
+WARNING: Write to full FIFO at time              2065000
+[             2065000] wclk: wr_en=1, wfull=1, almost_full=1
+[             2070000] rclk: rd_en=0, rempty=0, almost_empty=0, data_out=0xcf
+WARNING: Write to full FIFO at time              2075000
+[             2075000] wclk: wr_en=1, wfull=1, almost_full=1
+WARNING: Write to full FIFO at time              2085000
+[             2085000] wclk: wr_en=1, wfull=1, almost_full=1
+
+========================================
+All tests completed!
+========================================
+$finish called from file "tb/async_fifo/async_fifo_tb.v", line 188.
+$finish at simulation time              2090000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 2090000 ps
+CPU Time:      0.670 seconds;       Data structure size:   0.0Mb
+Mon Mar 23 22:33:54 2026

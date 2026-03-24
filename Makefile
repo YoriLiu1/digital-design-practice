@@ -76,6 +76,7 @@ cmp: prepare
 	$(VCS) $(VCS_OPTS) \
 		$$(cat $(RTL_FILE_LIST)) \
 		$$(cat $(TB_FILE_LIST)) \
+		-o $(SIM_DIR)/simv \
 		-l $(SIM_DIR)/com.log
 	@echo "Compilation done. Log: $(SIM_DIR)/com.log"
 
