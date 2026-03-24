@@ -2,13 +2,13 @@
 
 module async_fifo_tb;
 
-    // ========== Parameter Definition (Match RTL) ==========
-    parameter FIFO_WIDTH = 8;        // Data width 8bit
-    parameter FIFO_DEPTH = 16;       // FIFO depth 16
-    parameter ALMOST_FULL = 12;      // Almost full threshold
-    parameter ALMOST_EMPTY = 4;      // Almost empty threshold
+    // ========== Parameter definition ==========
+    parameter FIFO_WIDTH = 8;        
+    parameter FIFO_DEPTH = 16;       
+    parameter ALMOST_FULL = 12; 
+    parameter ALMOST_EMPTY = 4;      
     
-    // ========== Signal Definition ==========
+    // ========== Signal Definition =============
     reg  rst_n;                       // Reset (active low)
     
     // Write clock domain
@@ -25,7 +25,7 @@ module async_fifo_tb;
     wire rempty;
     wire almost_empty;
     
-    // ========== Clock Generation ==========
+    // ========== Clock generation ==========
     // Write clock: 100MHz (period 10ns)
     initial begin
         wclk = 0;
@@ -38,7 +38,7 @@ module async_fifo_tb;
         forever #10 rclk = ~rclk;
     end
     
-    // ========== Instantiate Async FIFO ==========
+    // ========== Instantiate async fifo ==========
     async_fifo #(
         .FIFO_WIDTH(FIFO_WIDTH),
         .FIFO_DEPTH(FIFO_DEPTH),
@@ -58,9 +58,9 @@ module async_fifo_tb;
         .almost_empty (almost_empty)
     );
     
-    // ========== Test Procedure ==========
+    // ========== Test procedure ==========
     initial begin
-        // 1. Initialization
+        
         rst_n = 0;
         wr_en = 0;
         rd_en = 0;
@@ -71,7 +71,7 @@ module async_fifo_tb;
         // 2. Release reset
         rst_n = 1;
         $display("========================================");
-        $display("Testbench Started");
+        $display("Testbench start");
         $display("FIFO_WIDTH = %d, FIFO_DEPTH = %d", FIFO_WIDTH, FIFO_DEPTH);
         $display("ALMOST_FULL = %d, ALMOST_EMPTY = %d", ALMOST_FULL, ALMOST_EMPTY);
         $display("========================================");

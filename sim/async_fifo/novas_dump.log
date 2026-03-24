@@ -152,7 +152,7 @@ Limit information:
 cputime		unlimited
 filesize		unlimited
 datasize		unlimited
-stacksize		unlimited
+stacksize		8192 kbytes
 coredumpsize		0 kbytes
 memoryuse		unlimited
 vmemoryuse		unlimited
@@ -174,10 +174,10 @@ VTE_VERSION=5204
 SHELL=/bin/bash
 HISTSIZE=1000
 MAKEFLAGS=MODULE=async_fifo
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/ae309b15_9569_4356_ae55_19ba5cf13f08
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/18cb25b8_db50_4250_8ae5_dea299977567
 VCS_TARGET_ARCH=linux64
-QTDIR=/usr/lib/qt-3.3
 OLDPWD=/home/yori/digital-design-practice
+QTDIR=/usr/lib/qt-3.3
 QTINC=/usr/lib/qt-3.3/include
 IMSETTINGS_MODULE=none
 QT_GRAPHICSSYSTEM_CHECKED=1
@@ -185,7 +185,7 @@ USER=yori
 MAKEOVERRIDES=${-*-command-variables-*-}
 LD_LIBRARY_PATH=/home/yori/synopsys_tool/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64
 LS_COLORS=rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:
-GNOME_TERMINAL_SERVICE=:1.114
+GNOME_TERMINAL_SERVICE=:1.132
 SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 DVE_HOME=/home/yori/synopsys_tool/vcs/O-2018.09-SP2
 MAKELEVEL=1
@@ -212,7 +212,7 @@ VCS_MX_HOME=/home/yori/synopsys_tool/vcs-mx/O-2018.09-SP2
 LM_LICENSE_FILE=27000@EDAYori
 GDMSESSION=gnome-classic
 HISTCONTROL=ignoredups
-SHLVL=3
+SHLVL=4
 XDG_SEAT=seat0
 HOME=/home/yori
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
@@ -245,8 +245,8 @@ argv[0]=./simv
 argv[1]=-l
 argv[2]=sim.log
 246 profile - 100
-          CPU/Mem usage: 0.340 sys,  0.040 user,  260.01M mem
-247 Mon Mar 23 22:33:54 2026
+          CPU/Mem usage: 0.060 sys,  0.160 user,  255.78M mem
+247 Tue Mar 24 01:48:10 2026
 248 pliAppInit
 249 FSDB_GATE is set.
 250 FSDB_RTL is set.
@@ -270,35 +270,35 @@ argv[2]=sim.log
 268 *Verdi* : Begin traversing the scope (async_fifo_tb), layer (0).
 269 *Verdi* : End of traversing.
 270 pliAppHDL_DumpVarComplete traverse var: profile - 
-          CPU/Mem usage: 0.610 sys,  0.050 user,  355.09M mem
-                   incr: 0.010 sys,  0.000 user,  7.27M mem
-                   accu: 0.010 sys,  0.000 user,  7.27M mem
-              accu incr: 0.010 sys,  0.000 user,  7.27M mem
+          CPU/Mem usage: 0.120 sys,  0.180 user,  350.86M mem
+                   incr: 0.020 sys,  0.020 user,  7.27M mem
+                   accu: 0.020 sys,  0.020 user,  7.27M mem
+              accu incr: 0.020 sys,  0.020 user,  7.27M mem
 
           Count usage: 34 var,  30 idcode,  13 callback
                  incr: 34 var,  30 idcode,  13 callback
                  accu: 34 var,  30 idcode,  13 callback
             accu incr: 34 var,  30 idcode,  13 callback
-271 Mon Mar 23 22:33:54 2026
+271 Tue Mar 24 01:48:10 2026
 272 pliAppHDL_DumpVarComplete: profile - 
-          CPU/Mem usage: 0.620 sys,  0.050 user,  356.15M mem
-                   incr: 0.010 sys,  0.000 user,  1.05M mem
-                   accu: 0.020 sys,  0.000 user,  8.32M mem
-              accu incr: 0.010 sys,  0.000 user,  1.05M mem
+          CPU/Mem usage: 0.120 sys,  0.180 user,  351.92M mem
+                   incr: 0.000 sys,  0.000 user,  1.05M mem
+                   accu: 0.020 sys,  0.020 user,  8.32M mem
+              accu incr: 0.000 sys,  0.000 user,  1.05M mem
 
           Count usage: 34 var,  30 idcode,  13 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 34 var,  30 idcode,  13 callback
             accu incr: 0 var,  0 idcode,  0 callback
-273 Mon Mar 23 22:33:54 2026
+273 Tue Mar 24 01:48:10 2026
 274 End of simulation at 2090000
-275 Mon Mar 23 22:33:54 2026
+275 Tue Mar 24 01:48:10 2026
 276 Begin FSDB profile info:
 277 FSDB Writer : bc1(688) bcn(329) mtf/stf(0/0)
-FSDB Writer elapsed time : flush(0.007184) io wait(0.000000) theadpool wait(0.000000) target functin(0.000000)
+FSDB Writer elapsed time : flush(0.006870) io wait(0.000000) theadpool wait(0.000000) target functin(0.000000)
 FSDB Writer cpu time : MT Compression : 0
 278 End FSDB profile info
 279 Parallel profile    -  Flush:3 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
-280                        ProduceTime:0.681488158 ConsumerTime:0.000000000 Buffer:64MB
+280                        ProduceTime:0.346584578 ConsumerTime:0.000000000 Buffer:64MB
 281 SimExit
 282 Sim process exit

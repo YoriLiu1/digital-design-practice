@@ -1,7 +1,7 @@
 Command: /home/yori/digital-design-practice/sim/async_fifo/./simv -l sim.log
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Mar 23 22:33 2026
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Mar 24 01:47 2026
 *Verdi* Loading libsscore_vcs201809.so
 FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
 (C) 1996 - 2019 by Synopsys, Inc.
@@ -12,7 +12,7 @@ FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
 [               10000] rclk: rd_en=0, rempty=1, almost_empty=1, data_out=0xxx
 [               15000] wclk: wr_en=0, wfull=0, almost_full=0
 ========================================
-Testbench Started
+Testbench start
 FIFO_WIDTH =           8, FIFO_DEPTH =          16
 ALMOST_FULL =          12, ALMOST_EMPTY =           4
 ========================================
@@ -393,5 +393,5 @@ $finish called from file "tb/async_fifo/async_fifo_tb.v", line 188.
 $finish at simulation time              2090000
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 2090000 ps
-CPU Time:      0.670 seconds;       Data structure size:   0.0Mb
-Mon Mar 23 22:33:54 2026
+CPU Time:      0.340 seconds;       Data structure size:   0.0Mb
+Tue Mar 24 01:48:10 2026
