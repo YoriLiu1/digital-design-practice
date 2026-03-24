@@ -44,11 +44,11 @@ def run_async_fifo_test():
     returncode, stdout, stderr = run_cmd("make MODULE=async_fifo cmp")
     
     if returncode != 0:
-        print("      ❌ COMPILATION FAILED!")
+        print("COMPILATION FAILED!")
         print("\n--- Compilation Error Output ---")
         print(stderr)
         return False
-    print("      ✅ Compilation successful.")
+    print("      Compilation successful.")
     
     # Step 3: Run simulation
     print("[3/3] Running simulation...")
@@ -56,10 +56,10 @@ def run_async_fifo_test():
     
     # Check if simulation passed
     if "All tests completed" in stdout:
-        print("      ✅ Simulation PASSED!")
+        print("Simulation PASSED!")
         return True
     else:
-        print("      ❌ Simulation FAILED!")
+        print("Simulation FAILED!")
         print("\n--- Simulation Output (last 50 lines) ---")
         lines = stdout.split('\n')
         for line in lines[-50:]:
@@ -73,9 +73,9 @@ def main():
     print()
     print("=" * 60)
     if success:
-        print("RESULT: ✅ Async FIFO test PASSED!")
+        print("RESULT: Async FIFO test PASSED!")
     else:
-        print("RESULT: ❌ Async FIFO test FAILED!")
+        print("RESULT: Async FIFO test FAILED!")
     print("=" * 60)
     
     sys.exit(0 if success else 1)
