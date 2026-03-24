@@ -1,0 +1,51 @@
+# Simulation generated files
+simv
+simv.daidir/
+csrc/
+*.log
+*.vpd
+*.fsdb
+*.key
+*.sdf
+*.svf
+*.rc
+*.conf
+verdiLog/
+vfastLog/
+novas.conf
+novas.rc
+
+# Compiled objects
+*.o
+*.a
+*.so
+*.s
+
+# Generated file lists
+rtl_files.txt
+tb_files.txt
+file.list
+clean_list.txt
+
+# Sim directories
+sim/
+
+# VCS temporary files
+DVEfiles/
+ucli.key
+vc_hdrs.h
+
+# Makefile generated
+Makefile.hsopt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Vim swap files
+*.swp
+*.swo
+
+# OS generated
+.DS_Store
+Thumbs.db
