@@ -36,7 +36,7 @@ module async_fifo#(
     wire [$clog2(FIFO_DEPTH):0] rptr_bin_syn;
     wire [$clog2(FIFO_DEPTH):0] wptr_bin_syn;
     
-   //写指针 
+   // Write pointer
     always@(posedge wclk or negedge rst_n)begin
         if(!rst_n)
             wptr<='d0;
@@ -58,11 +58,13 @@ module async_fifo#(
         else
             rptr<=rptr;
     end
-    //空满
-    //地址二进制转格雷码(原因：打两拍同步指针时只适用于每次变化1bit 当多bit时打怕方式会是的跨时钟域同步的结果出错
+    // Full and empty
+    // Binary to Gray code conversion (Reason: Two-stage synchronization of pointers
+    // only works when only one bit changes per cycle. Multi-bit synchronization across
+    // clock domains using flip-flops would cause metastability issues.)
     assign wptr_gray=wptr^(wptr>>1);
     assign rptr_gray=rptr^(rptr>>1);
-    //跨时钟域--将写指针同步到读时钟域
+    // Cross clock domain -- Synchronize write pointer to read clock domain
     always@(posedge rclk or negedge rst_n)begin
         if(!rst_n)begin
               wptr_gray_nxt<='d0;
@@ -73,7 +75,7 @@ module async_fifo#(
               wptr_gray_syn<=wptr_gray_nxt;        
         end  
     end
-    //跨时钟域--将读指针同步到写时钟域
+    // Cross clock domain -- Synchronize read pointer to write clock domain
     always@(posedge wclk or negedge rst_n)begin
         if(!rst_n)begin
               rptr_gray_nxt<='d0;
@@ -87,8 +89,8 @@ module async_fifo#(
     assign wfull=({~wptr_gray[$clog2(FIFO_DEPTH):$clog2(FIFO_DEPTH)-1],wptr_gray[$clog2(FIFO_DEPTH)-2:0]}==rptr_gray_syn)?1'b1:1'b0;
     assign rempty=(wptr_gray_syn==rptr_gray)?1'b1:1'b0; 
     
-    //almost_full与almost_empty
-    //先将指针格雷码形式转换为二进制
+    // almost_full and almost_empty
+    // Convert Gray code pointers to binary first
     assign rptr_bin_syn[$clog2(FIFO_DEPTH)]=rptr_gray_syn[$clog2(FIFO_DEPTH)];
     assign wptr_bin_syn[$clog2(FIFO_DEPTH)]=wptr_gray_syn[$clog2(FIFO_DEPTH)];
     
@@ -101,14 +103,14 @@ module async_fifo#(
     end
     endgenerate
     
-    //almost_empty
+    // almost_empty calculation
     always@(*)begin
         if(wptr_bin_syn[$clog2(FIFO_DEPTH)]==rptr[$clog2(FIFO_DEPTH)])
             almost_empty_value=wptr_bin_syn[$clog2(FIFO_DEPTH)-1:0]-rptr[$clog2(FIFO_DEPTH)-1:0]; 
         else   
             almost_empty_value=FIFO_DEPTH-(rptr[$clog2(FIFO_DEPTH)-1:0]-wptr_bin_syn[$clog2(FIFO_DEPTH)-1:0]);
     end
-    //almost_full
+    // almost_full calculation
     always@(*)begin
         if(rptr_bin_syn[$clog2(FIFO_DEPTH)]==wptr[$clog2(FIFO_DEPTH)])
             almost_full_value=wptr[$clog2(FIFO_DEPTH)-1:0]-rptr_bin_syn[$clog2(FIFO_DEPTH)-1:0]; 
@@ -119,4 +121,3 @@ module async_fifo#(
     assign almost_full=(almost_full_value>ALMOST_FULL); 
         
 endmodule
-
