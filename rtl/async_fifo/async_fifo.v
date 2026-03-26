@@ -104,8 +104,8 @@ module async_fifo#(
     generate 
     genvar i;
     for (i=$clog2(FIFO_DEPTH)-1;i>=0;i=i-1)begin
-        assign rptr_bin_syn[i]=rptr_gray_syn[i+1]^rptr_gray_syn[i];
-        assign wptr_bin_syn[i]=wptr_gray_syn[i+1]^wptr_gray_syn[i]; 
+        assign rptr_bin_syn[i]=rptr_bin_syn[i+1]^rptr_gray_syn[i];
+        assign wptr_bin_syn[i]=wptr_bin_syn[i+1]^wptr_gray_syn[i]; 
     end
     endgenerate
     
@@ -125,7 +125,7 @@ module async_fifo#(
             almost_full_value=FIFO_DEPTH-(rptr_bin_syn[$clog2(FIFO_DEPTH)-1:0]-wptr[$clog2(FIFO_DEPTH)-1:0]);
     end
     
-    assign almost_empty=(almost_empty_value<ALMOST_EMPTY); 
-    assign almost_full=(almost_full_value>ALMOST_FULL); 
+    assign almost_empty=(almost_empty_value<=ALMOST_EMPTY); 
+    assign almost_full=(almost_full_value>=ALMOST_FULL); 
         
 endmodule
