@@ -38,7 +38,7 @@ module async_fifo_tb;
         forever #10 rclk = ~rclk;
     end
     
-    // ========== Instantiate async fifo ==========
+    // Instantiate async fifo
     async_fifo #(
         .FIFO_WIDTH(FIFO_WIDTH),
         .FIFO_DEPTH(FIFO_DEPTH),
@@ -58,7 +58,7 @@ module async_fifo_tb;
         .almost_empty (almost_empty)
     );
     
-    // ========== Test procedure ==========
+    // Test procedure
     initial begin
         
         rst_n = 0;
@@ -68,15 +68,14 @@ module async_fifo_tb;
         
         #20;  // Wait for clocks to stabilize
         
-        // 2. Release reset
+        // Release reset
         rst_n = 1;
-        $display("========================================");
+
         $display("Testbench start");
         $display("FIFO_WIDTH = %d, FIFO_DEPTH = %d", FIFO_WIDTH, FIFO_DEPTH);
         $display("ALMOST_FULL = %d, ALMOST_EMPTY = %d", ALMOST_FULL, ALMOST_EMPTY);
-        $display("========================================");
-        
-        // 3. Test 1: Write one data, then read
+      
+        // Test 1: Write one data, then read
         #30;
         $display("\n[Test 1] Write then read");
         
@@ -101,10 +100,10 @@ module async_fifo_tb;
             $display("  [FAIL] Expected 0xA5, got 0x%h", data_out);
         end
         
-        // 4. Test 2: Write until full
+        // Test 2: Write until full
         #50;
-        $display("\n[Test 2] Write until full");
-        
+        $display("\n[Test 2] Write until full");   
+    
         while (!wfull) begin
             @(posedge wclk);
             wr_en = 1;
@@ -115,7 +114,7 @@ module async_fifo_tb;
         $display("  FIFO full after writing %d data", data_in);
         $display("  wfull = %b, almost_full = %b", wfull, almost_full);
         
-        // 5. Test 3: Read until empty
+        // Test 3: Read until empty
         #50;
         $display("\n[Test 3] Read until empty");
         
@@ -129,7 +128,7 @@ module async_fifo_tb;
         $display("  FIFO empty after reading all data");
         $display("  rempty = %b, almost_empty = %b", rempty, almost_empty);
         
-        // 6. Test 4: Test almost_full and almost_empty flags
+        // Test 4: Test almost_full and almost_empty flags
         #50;
         $display("\n[Test 4] Test almost_full and almost_empty flags");
         
@@ -146,7 +145,7 @@ module async_fifo_tb;
         
         // Read data until almost_empty becomes active
         #50;
-        $display("  Reading data until almost_empty...");
+        $display("  Reading data until almost_empty");
         while (!almost_empty && !rempty) begin
             @(posedge rclk);
             rd_en = 1;
@@ -155,7 +154,7 @@ module async_fifo_tb;
         rd_en = 0;
         $display("  almost_empty = %b when data count <= %d", almost_empty, ALMOST_EMPTY);
         
-        // 7. Test 5: Random read and write
+        // Test 5: Random read and write
         #50;
         $display("\n[Test 5] Random write and read");
         
@@ -180,21 +179,21 @@ module async_fifo_tb;
             end
         end
         
-        // 8. End simulation
+        // End simulation
         #100;
-        $display("\n========================================");
+        $display("========================================");
         $display("All tests completed!");
         $display("========================================");
         $finish;
     end
     
-    // ========== Waveform Dump ==========
+    // Waveform Dump
     initial begin
         $fsdbDumpfile("async_fifo.fsdb");
         $fsdbDumpvars(0, async_fifo_tb);
     end
     
-    // ========== Monitor (Warning Checks) ==========
+    // Monitor (Warning Checks)
     always @(posedge wclk) begin
         if (wr_en && wfull) begin
             $display("WARNING: Write to full FIFO at time %t", $time);
@@ -207,7 +206,7 @@ module async_fifo_tb;
         end
     end
     
-    // Optional: Print status changes
+    // Print status changes
     always @(posedge wclk) begin
         $display("[%t] wclk: wr_en=%b, wfull=%b, almost_full=%b", 
                  $time, wr_en, wfull, almost_full);
@@ -216,6 +215,14 @@ module async_fifo_tb;
     always @(posedge rclk) begin
         $display("[%t] rclk: rd_en=%b, rempty=%b, almost_empty=%b, data_out=0x%h", 
                  $time, rd_en, rempty, almost_empty, data_out);
+    end
+  
+  // Monitor Full Status with Data Count
+    always @(posedge wclk) begin
+        if (wfull) begin
+            $display("[FULL DEBUG] at time %t, wfull=%b, almost_full=%b, wr_en=%b", 
+                     $time, wfull, almost_full, wr_en);
+        end
     end
 
 endmodule
