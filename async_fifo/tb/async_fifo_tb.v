@@ -187,10 +187,10 @@ module async_fifo_tb;
         $finish;
     end
     
-    // Waveform Dump
+    // Waveform Dump (VCD for Icarus Verilog / GTKWave)
     initial begin
-        $fsdbDumpfile("async_fifo.fsdb");
-        $fsdbDumpvars(0, async_fifo_tb);
+        $dumpfile("async_fifo.vcd");
+        $dumpvars(0, async_fifo_tb);
     end
     
     // Monitor (Warning Checks)
