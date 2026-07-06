@@ -99,6 +99,15 @@ make clean    # 清理仿真产物
 | **描述** | 输入时钟 3 分频, 输出严格 50% 占空比: 上升沿+下降沿双沿触发, OR 组合获得 1.5 拍高电平 |
 | **技术点** | posedge/negedge 混用、模 3 计数器、占空比控制 |
 
+### 9. Serial2Parallel — 串并转换 (6-bit)
+
+| | |
+|---|---|
+| **文件** | [Serial2Parallel/](Serial2Parallel/) |
+| **顶层** | `tb_Serial2Parallel` |
+| **描述** | 6 拍串行输入 → 1 拍 6-bit 并行输出 (LSB first), 带 valid-ready 上下游握手和反压 |
+| **技术点** | valid-ready 握手协议、backpressure 反压、移位寄存器 |
+
 ---
 
 ## 目录结构
@@ -120,6 +129,10 @@ digital-design-practice/
 ├── divide_3/                     # 50% 占空比三分频
 │   ├── rtl/div3.v
 │   ├── tb/tb_div3.v
+│   └── sim/Makefile
+├── Serial2Parallel/              # 串并转换 (6-bit)
+│   ├── rtl/Serial2Parallel.v
+│   ├── tb/tb_Serial2Parallel.v
 │   └── sim/Makefile
 └── arbiter_all/                  # 仲裁器合集
     ├── arbiter/                  #   加权仲裁器
