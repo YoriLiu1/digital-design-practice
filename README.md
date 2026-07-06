@@ -90,6 +90,15 @@ make clean    # 清理仿真产物
 | **输出** | binary index (`pointer_o`), 非 one-hot |
 | **技术点** | prefix-OR 链、one-hot→binary 编码函数、`sche_en` 调度使能 |
 
+### 8. divide_3 — 占空比 50% 三分频电路
+
+| | |
+|---|---|
+| **文件** | [divide_3/](divide_3/) |
+| **顶层** | `tb_div3` |
+| **描述** | 输入时钟 3 分频, 输出严格 50% 占空比: 上升沿+下降沿双沿触发, OR 组合获得 1.5 拍高电平 |
+| **技术点** | posedge/negedge 混用、模 3 计数器、占空比控制 |
+
 ---
 
 ## 目录结构
@@ -107,6 +116,10 @@ digital-design-practice/
 ├── frame_head_detector/          # 帧头检测器
 │   ├── rtl/frame_head.v
 │   ├── tb/tb_frame_head.v
+│   └── sim/Makefile
+├── divide_3/                     # 50% 占空比三分频
+│   ├── rtl/div3.v
+│   ├── tb/tb_div3.v
 │   └── sim/Makefile
 └── arbiter_all/                  # 仲裁器合集
     ├── arbiter/                  #   加权仲裁器
