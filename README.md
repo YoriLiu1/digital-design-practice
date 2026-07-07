@@ -108,6 +108,78 @@ make clean    # 清理仿真产物
 | **描述** | 6 拍串行输入 → 1 拍 6-bit 并行输出 (LSB first), 带 valid-ready 上下游握手和反压 |
 | **技术点** | valid-ready 握手协议、backpressure 反压、移位寄存器 |
 
+### 10. edge_detect — 边缘检测
+
+| | |
+|---|---|
+| **文件** | [edge_detect/](edge_detect/) |
+| **顶层** | `tb_edge_detect` |
+| **描述** | 打两拍 + XOR, 检测输入信号的上升沿/下降沿, 输出 1 拍脉冲 |
+| **技术点** | 两级寄存器同步、XOR 边缘检测 |
+
+### 11. seq_detector — 序列检测器 (FSM)
+
+| | |
+|---|---|
+| **文件** | [seq_detector/](seq_detector/) |
+| **顶层** | `tb_seq_detector` |
+| **描述** | Moore 型 FSM 检测 "1101" 序列, 支持重叠匹配 |
+| **技术点** | 状态机设计、重叠检测、三段式 FSM |
+
+### 12. Parallel2Serial — 并串转换 (6-bit)
+
+| | |
+|---|---|
+| **文件** | [Parallel2Serial/](Parallel2Serial/) |
+| **顶层** | `tb_Parallel2Serial` |
+| **描述** | 1 拍 6-bit 并行输入 → 6 拍串行输出 (LSB first), 带握手反压 |
+| **技术点** | 移位输出、发送状态机、反压暂停 |
+
+### 13. gray_counter — Gray 码计数器
+
+| | |
+|---|---|
+| **文件** | [gray_counter/](gray_counter/) |
+| **顶层** | `tb_gray_counter` |
+| **描述** | 可配置位宽 Gray 码计数器, 同时输出 binary 和 gray |
+| **技术点** | Binary↔Gray 转换 (`gray = bin ^ (bin>>1)`)、邻位单 bit 变化 |
+
+### 14. sync_fifo — 同步 FIFO
+
+| | |
+|---|---|
+| **文件** | [sync_fifo/](sync_fifo/) |
+| **顶层** | `tb_sync_fifo` |
+| **描述** | 单时钟域同步 FIFO, 寄存器输出, MSB 扩展法区分空满 |
+| **技术点** | 读写指针管理、空满判断、寄存器输出 |
+
+### 15. clock_mux — Glitch-Free 时钟切换
+
+| | |
+|---|---|
+| **文件** | [clock_mux/](clock_mux/) |
+| **顶层** | `tb_clock_mux` |
+| **描述** | 两个时钟源之间无毛刺切换, 下降沿门控 + 跨域反馈 |
+| **技术点** | 时钟门控、两级同步器、neg edge 切换防毛刺 |
+
+### 16. pulse_sync — 脉冲同步器 (CDC)
+
+| | |
+|---|---|
+| **文件** | [pulse_sync/](pulse_sync/) |
+| **顶层** | `tb_pulse_sync` |
+| **描述** | 将源时钟域单周期脉冲同步到目标时钟域 (toggle 法) |
+| **技术点** | 脉冲→toggle→两级同步→边缘检测、跨时钟域 |
+
+### 17. ping_pong — 乒乓 Buffer
+
+| | |
+|---|---|
+| **文件** | [ping_pong/](ping_pong/) |
+| **顶层** | `tb_ping_pong` |
+| **描述** | 双缓冲无缝切换, 写满一块自动切换到另一块, 读写流水不中断 |
+| **技术点** | 双 bank 管理、full_banks 计数、寄存器输出、反压
+
 ---
 
 ## 目录结构
@@ -134,6 +206,14 @@ digital-design-practice/
 │   ├── rtl/Serial2Parallel.v
 │   ├── tb/tb_Serial2Parallel.v
 │   └── sim/Makefile
+├── edge_detect/                  # 边缘检测
+├── seq_detector/                 # 序列检测器 (1101)
+├── Parallel2Serial/              # 并串转换 (6-bit)
+├── gray_counter/                 # Gray 码计数器
+├── sync_fifo/                    # 同步 FIFO
+├── clock_mux/                    # Glitch-free 时钟切换
+├── pulse_sync/                   # 脉冲同步器 (CDC)
+├── ping_pong/                    # 乒乓 buffer
 └── arbiter_all/                  # 仲裁器合集
     ├── arbiter/                  #   加权仲裁器
     ├── fix_arbiter/              #   固定基优先级仲裁器
